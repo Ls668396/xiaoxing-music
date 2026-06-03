@@ -1,8 +1,12 @@
 {
   "name": "xiaoxing-music",
   "version": "1.0.0",
+  "description": "小星瓦力机器人 - 云端音乐API",
+  "main": "api/index.js",
+  "scripts": {
+    "start": "node api/index.js"
+  },
   "dependencies": {
-    "NeteaseCloudMusicApi": "latest",
-    "express": "^4.21.0"
+    "NeteaseCloudMusicApi": "latest"
   }
 }
