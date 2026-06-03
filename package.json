@@ -1,0 +1,7 @@
+{
+  "name": "xiaoxing-music",
+  "version": "1.0.0",
+  "dependencies": {
+    "NeteaseCloudMusicApi": "latest"
+  }
+}

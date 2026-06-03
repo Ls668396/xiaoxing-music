@@ -1,0 +1,14 @@
+{
+  "functions": {
+    "api/index.js": {
+      "memory": 512,
+      "maxDuration": 10
+    }
+  },
+  "rewrites": [
+    { "source": "/search", "destination": "/api" },
+    { "source": "/song/url", "destination": "/api" },
+    { "source": "/song/url/v1", "destination": "/api" },
+    { "source": "/lyric", "destination": "/api" }
+  ]
+}
