@@ -1,7 +1,16 @@
 /**
- * 小星音乐API - Vercel Serverless
+ * 小星音乐API - Express Server
  * 24小时在线，给小星瓦力提供音乐搜索+播放+歌词
  */
+
+const express = require('express');
+const app = express();
+
+// CORS
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  next();
+});
 
 // 动态导入避免冷启动加载整个包
 let _modules = null;
@@ -16,12 +25,9 @@ async function getModules() {
   return _modules;
 }
 
-module.exports = async (req, res) => {
-  // CORS
-  res.setHeader('Access-Control-Allow-Origin', '*');
-
+app.use(async (req, res) => {
   try {
-    const { query } = req;
+    const query = req.query;
     const action = query.action || '';
 
     if (action === 'search') {
@@ -77,4 +83,7 @@ module.exports = async (req, res) => {
   } catch (e) {
     return res.json({ code: 500, msg: e.message });
   }
-};
+});
+
+const port = process.env.PORT || 3000;
+app.listen(port, '0.0.0.0', () => console.log('Listening on port ' + port));
